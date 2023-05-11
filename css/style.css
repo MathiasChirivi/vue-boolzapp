@@ -48,3 +48,8 @@
     top: 10px;
     left: 65px;
 }
+
+.chatStyle{
+    cursor: pointer;
+    background-color: rgb(230, 220, 220);
+}
