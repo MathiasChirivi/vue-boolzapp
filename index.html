@@ -20,7 +20,7 @@
             <div class="container pt-5 d-flex">
                 <aside class="aside">
                     <div class="d-flex justify-content-between border section">
-                        <div class="my-3">
+                        <div class="my-auto">
                             <img class="myProfile" src="./img/avatar_io.jpg" alt="">
                             <span>Sofia</span>
                         </div>
@@ -49,11 +49,59 @@
                             </div>
                         </form>
                     </div>
-                </aside>
-                <!-- LIST CHAT -->
-                <div class="border d-flex chatStyle">
-                    
+                
+                <!-- CHATLIST  -->
+                <div class=" border border-secondary-subtle d-flex chatStyle p-2" v-for = "(element, index) in contacts" @click="changeChat(index)">
+                    <img class="myProfile " :src="element.avatar" alt="">
+                    <div class="d-flex flex-column px-3 ">
+                        {{element.name}}
+                        <div class="text-secondary">
+                            Ultimo messaggio inviato
+                        </div>
+                    </div>
                 </div>
+                </aside>
+                <!-- SECTION MESSAGES -->
+                <main>
+                    <div class="d-flex justify-content-between section">
+                        <div class="my-auto d-flex">
+                            <img class="myProfile" :src="contacts[activeChat].avatar" alt="">
+
+                            <div class="d-flex flex-column mx-3">
+                                <div>
+                                    {{contacts[activeChat].name}}
+                                </div>
+                                <div class="text-secondary">
+                                    ultimo accesso 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-auto">
+                            <i class="fa-solid fa-magnifying-glass iconColor"></i>
+                            <i class="fa-solid fa-ellipsis-vertical iconColor"></i>
+                            <i class="fa-solid fa-paperclip iconColor"></i>
+                        </div>
+                    </div>
+                    <!-- SECTION MESSAGES WITH CHAT -->
+                    <div class="chatMessages d-flex flex-column justify-content-between">
+                        <div v-for="(element, index) in contacts[activeChat].messages" class="d-flex">
+                            <div>
+                                {{element.message}}
+                            </div>
+                            <div class="text-secondary">
+                                {{element.date}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PART OF YOU WRITE MESSAGES WITH ICON MICROPHONE -->
+                    <div class="section">
+                        <div class="input-group">
+                            <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
+                            <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                            <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
+                        </div>
+                    </div>
+                </main>
             </div>
         </div>
     </div>

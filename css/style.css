@@ -22,7 +22,7 @@
 }
 
 .iconColor{
-    color: rgb(223, 206, 206);
+    color: rgb(147, 147, 147);
     margin-right: 1rem;
 }
 
@@ -51,5 +51,14 @@
 
 .chatStyle{
     cursor: pointer;
-    background-color: rgb(230, 220, 220);
+    background-color: rgb(255, 255, 255);
+}
+
+main{
+    width: 60vw;
+}
+
+.chatMessages{
+    background-image: url(../img/mine.jpg);
+    height: 64vh;
 }
