@@ -16,9 +16,13 @@
     margin-left: 10px;
 }
 
+.fontSizeLastMessages{
+    font-size: 13px;
+}
+
 .aside{
     background-color: rgb(234 234 234);
-    width: 25vw;
+    width: 35vw;
 }
 
 .iconColor{
@@ -70,15 +74,17 @@ main{
 .receivedMessage{
     background-color: #FFFFFF;
     justify-content: flex-start;
-    max-width: 300px;
+    max-width: 380px;
     padding: 10px;
     margin: 4px;
+    word-break: break-all;
 }
 
 .sentMessage{
     background-color: #D5F9BA;
     justify-content: flex-start;
-    max-width: 300px;
+    max-width: 380px;
     padding: 10px;
     margin: 4px;
+    word-break: break-all;
 }

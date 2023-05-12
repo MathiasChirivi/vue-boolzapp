@@ -54,11 +54,16 @@
                 <div class=" border border-secondary-subtle d-flex chatStyle p-2" v-for = "(element, index) in contacts" @click="changeChat(index)">
                     <img class="myProfile " :src="element.avatar" alt="">
                     <div class="d-flex flex-column px-3 ">
-                        {{element.name}}
-                        <div class="text-secondary">
-                            Ultimo messaggio inviato
+                        <div class="">
+                            {{element.name}}
                         </div>
+                        <small class=" text-secondary fontSizeLastMessages">
+                            {{element.messages[element.messages.length-1].message}}
+                        </small>
                     </div>
+                        <small class="ms-auto text-secondary fontSizeLastMessages">
+                            {{element.messages[element.messages.length-1].date.slice(10,16)}}
+                        </small>
                 </div>
                 </aside>
                 <!-- SECTION MESSAGES -->
