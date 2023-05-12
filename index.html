@@ -83,22 +83,25 @@
                         </div>
                     </div>
                     <!-- SECTION MESSAGES WITH CHAT -->
-                    <div class="chatMessages d-flex flex-column justify-content-between">
-                        <div v-for="(element, index) in contacts[activeChat].messages" class="d-flex">
-                            <div>
+                    <div class="partMessages">
+                        <div class="chatMessages d-flex flex-column">
+                            <div v-for="(element, index) in contacts[activeChat].messages"
+                            class="d-flex"  :class="(element.status == 'received') ? 'justify-content-start' : 'justify-content-end'">
+                            <div :class="(element.status == 'received') ? 'receivedMessage d-flex flex-column rounded-3' : 'sentMessage d-flex flex-column rounded-3'">
                                 {{element.message}}
-                            </div>
-                            <div class="text-secondary">
-                                {{element.date}}
+                                <div class="text-secondary">
+                                    {{element.date}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- PART OF YOU WRITE MESSAGES WITH ICON MICROPHONE -->
-                    <div class="section">
-                        <div class="input-group">
-                            <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
-                            <input type="text" class="form-control" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
+                        <!-- PART OF YOU WRITE MESSAGES WITH ICON MICROPHONE -->
+                        <div class="section">
+                            <div class="input-group">
+                                <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
+                                <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                                <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
+                            </div>
                         </div>
                     </div>
                 </main>

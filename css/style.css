@@ -1,6 +1,6 @@
 #containerMessage{
     background-image: linear-gradient(rgb(0 150 136) 10%,rgba(255, 255, 255, 0.767) 0%);
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -58,7 +58,27 @@ main{
     width: 60vw;
 }
 
+.partMessages{
+    height: calc(100% - 70px - 70px);
+}
+
 .chatMessages{
     background-image: url(../img/mine.jpg);
-    height: 64vh;
+    height: 100%;
+}
+
+.receivedMessage{
+    background-color: #FFFFFF;
+    justify-content: flex-start;
+    max-width: 300px;
+    padding: 10px;
+    margin: 4px;
+}
+
+.sentMessage{
+    background-color: #D5F9BA;
+    justify-content: flex-start;
+    max-width: 300px;
+    padding: 10px;
+    margin: 4px;
 }
