@@ -4,8 +4,9 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
+            currentIndex:0,
             activeChat: 0,
-
+            newMessage:"",
             contacts: [
                 {
                     name: 'Michele',
@@ -176,7 +177,18 @@ createApp({
         changeChat(index){
             this.activeChat = index
         },
-        
+        addMessage(currentIndex){
+            let newMessage = {
+                message:this.newMessage,
+                date: this.currentDate(),
+                status:'sent',
+            }
+            this.contacts[currentIndex].messages.push(newMessage);
+            this.newMessage = "";
+        },
+        currentDate(){
+            return dayjs().format('DD/MM/YYYY HH:mm:ss');
+        }
     }
 
 }).mount('#app')

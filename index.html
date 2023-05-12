@@ -12,6 +12,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 </head>
 <body>
 
@@ -104,7 +105,7 @@
                         <div class="section">
                             <div class="input-group">
                                 <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
-                                <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                                <input v-model="newMessage" @keyUp.enter="addMessage(currentIndex)" type="text" class="form-control" placeholder="Scrivi un messaggio">
                                 <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
                             </div>
                         </div>
