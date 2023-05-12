@@ -68,7 +68,7 @@ main{
 
 .chatMessages{
     background-image: url(../img/mine.jpg);
-    height: 100%;
+    height: calc((100% - 70px ) - 70px);
 }
 
 .receivedMessage{
