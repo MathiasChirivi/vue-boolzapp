@@ -89,8 +89,8 @@
                         </div>
                     </div>
                     <!-- SECTION MESSAGES WITH CHAT -->
-                    <div class="partMessages">
-                        <div class="chatMessages d-flex flex-column">
+                    <div class="partMessages ">
+                        <div class="chatMessages d-flex flex-column overflow-auto">
                             <div v-for="(element, index) in contacts[activeChat].messages"
                             class="d-flex"  :class="(element.status == 'received') ? 'justify-content-start' : 'justify-content-end'">
                             <div :class="(element.status == 'received') ? 'receivedMessage d-flex flex-column rounded-3' : 'sentMessage d-flex flex-column rounded-3'">
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                         <!-- PART OF YOU WRITE MESSAGES WITH ICON MICROPHONE -->
                         <div class="section">
                             <div class="input-group">

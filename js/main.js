@@ -185,6 +185,18 @@ createApp({
             }
             this.contacts[currentIndex].messages.push(newMessage);
             this.newMessage = "";
+
+            setTimeout(() =>{
+                this.newAnswer(currentIndex)}, 1000)
+        },
+        newAnswer(currentIndex){
+            let newMessageAnswer = {
+                message: "ok",
+                date: this.currentDate(),
+                status:'received',
+            }
+            this.contacts[currentIndex].messages.push(newMessageAnswer);
+            this.newMessageAnswer = "";
         },
         currentDate(){
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
