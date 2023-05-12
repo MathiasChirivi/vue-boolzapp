@@ -63,12 +63,12 @@ main{
 }
 
 .partMessages{
-    height: calc(100% - 70px - 70px);
+    border: 0.5px solid rgb(168, 168, 168);
 }
 
 .chatMessages{
     background-image: url(../img/mine.jpg);
-    height: calc((100% - 70px ) - 70px);
+    height: calc((100vh - 210px ) - 140px + 0.813rem);
 }
 
 .receivedMessage{
