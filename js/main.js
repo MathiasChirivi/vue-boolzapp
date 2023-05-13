@@ -1,12 +1,12 @@
 console.log("benvenuto");
 
-const {createApp} = Vue
+const { createApp } = Vue
 createApp({
-    data(){
-        return{
-            addMessageErrorClass:"",
-            currentIndex:0,
-            newMessage:"",
+    data() {
+        return {
+            addMessageErrorClass: "",
+            currentIndex: 0,
+            newMessage: "",
             searchNameContact: "",
             contacts: [
                 {
@@ -171,45 +171,47 @@ createApp({
                     ],
                 }
             ]
-            
-        } 
+
+        }
     },
-    methods:{
-        changeChat(index){
+    methods: {
+        changeChat(index) {
             this.currentIndex = index
         },
-        addMessage(currentIndex){
+        addMessage(currentIndex) {
             if (this.newMessage.length > 0) {
                 let newMessage = {
-                    message:this.newMessage,
+                    message: this.newMessage,
                     date: this.currentDate(),
-                    status:'sent',
+                    status: 'sent',
                 }
                 this.contacts[currentIndex].messages.push(newMessage);
                 this.newMessage = "";
-    
-                setTimeout(() =>{
-                    this.newAnswer(currentIndex)}, 1000)
-            }else {
-              this.addMessageErrorClass = "errorMessage"
-              setTimeout(() => {
-                  //remove the class so animation can occur as many times as user triggers event, delay must be longer than the animation duration and any delay.
-                  this.addMessageErrorClass = ""}, 400); 
+
+                setTimeout(() => {
+                    this.newAnswer(currentIndex)
+                }, 1000)
+            } else {
+                this.addMessageErrorClass = "errorMessage"
+                setTimeout(() => {
+                    //remove the class so animation can occur as many times as user triggers event, delay must be longer than the animation duration and any delay.
+                    this.addMessageErrorClass = ""
+                }, 400);
             }
         },
-        newAnswer(currentIndex){
+        newAnswer(currentIndex) {
             let newMessageAnswer = {
                 message: "ok",
                 date: this.currentDate(),
-                status:'received',
+                status: 'received',
             }
             this.contacts[currentIndex].messages.push(newMessageAnswer);
             this.newMessageAnswer = "";
         },
-        currentDate(){
+        currentDate() {
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
-        searchContact(){
+        searchContact() {
             this.contacts.forEach(nameSearch => {
                 let searchName = nameSearch.name.toLoweCase();
                 if (searchName.includes(this.searchNameContact.toLowerCase())) {
