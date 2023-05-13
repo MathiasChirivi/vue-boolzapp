@@ -68,7 +68,7 @@ main{
 
 .chatMessages{
     background-image: url(../img/mine.jpg);
-    height: calc((100vh - 210px ) - 140px + 0.813rem);
+    max-height: calc((100vh - 70px - 70px));
 }
 
 .receivedMessage{
@@ -88,3 +88,16 @@ main{
     margin: 4px;
     word-break: break-all;
 }
+
+.errorMessage {
+  animation: bounce .3s
+}
+
+/* This approximates the ease-in-out-bounce animation from easings.net, which would require a plug-in to use*/
+@keyframes bounce {
+  
+  25% { transform: translateX(4px); border-color: red;}
+    50% { transform: translateX(-4px); border-color: red; }
+    75% { transform: translateX(4px); border-color: red; }
+  }
+  

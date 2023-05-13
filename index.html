@@ -71,11 +71,11 @@
                 <main>
                     <div class="d-flex justify-content-between section">
                         <div class="my-auto d-flex">
-                            <img class="myProfile" :src="contacts[activeChat].avatar" alt="">
+                            <img class="myProfile" :src="contacts[currentIndex].avatar" alt="">
 
                             <div class="d-flex flex-column mx-3">
                                 <div>
-                                    {{contacts[activeChat].name}}
+                                    {{contacts[currentIndex].name}}
                                 </div>
                                 <div class="text-secondary">
                                     ultimo accesso 
@@ -91,7 +91,7 @@
                     <!-- SECTION MESSAGES WITH CHAT -->
                     <div class="partMessages ">
                         <div class="chatMessages d-flex flex-column overflow-auto">
-                            <div v-for="(element, index) in contacts[activeChat].messages"
+                            <div v-for="(element, index) in contacts[currentIndex].messages"
                             class="d-flex"  :class="(element.status == 'received') ? 'justify-content-start' : 'justify-content-end'">
                             <div :class="(element.status == 'received') ? 'receivedMessage d-flex flex-column rounded-3' : 'sentMessage d-flex flex-column rounded-3'">
                                 {{element.message}}
@@ -105,7 +105,7 @@
                         <div class="section">
                             <div class="input-group">
                                 <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
-                                <input v-model="newMessage" @keyUp.enter="addMessage(currentIndex)" type="text" class="form-control" placeholder="Scrivi un messaggio">
+                                <input v-model="newMessage" @keyUp.enter="addMessage(currentIndex)" type="text" class="form-control" :class="addMessageErrorClass" placeholder="Scrivi un messaggio">
                                 <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
                             </div>
                         </div>

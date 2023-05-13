@@ -4,9 +4,10 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
+            addMessageErrorClass:"",
             currentIndex:0,
-            activeChat: 0,
             newMessage:"",
+            searchName:"",
             contacts: [
                 {
                     name: 'Michele',
@@ -175,19 +176,26 @@ createApp({
     },
     methods:{
         changeChat(index){
-            this.activeChat = index
+            this.currentIndex = index
         },
         addMessage(currentIndex){
-            let newMessage = {
-                message:this.newMessage,
-                date: this.currentDate(),
-                status:'sent',
+            if (this.newMessage.length > 0) {
+                let newMessage = {
+                    message:this.newMessage,
+                    date: this.currentDate(),
+                    status:'sent',
+                }
+                this.contacts[currentIndex].messages.push(newMessage);
+                this.newMessage = "";
+    
+                setTimeout(() =>{
+                    this.newAnswer(currentIndex)}, 1000)
+            }else {
+              this.addMessageErrorClass = "errorMessage"
+              setTimeout(() => {
+                  //remove the class so animation can occur as many times as user triggers event, delay must be longer than the animation duration and any delay.
+                  this.addMessageErrorClass = ""}, 400); 
             }
-            this.contacts[currentIndex].messages.push(newMessage);
-            this.newMessage = "";
-
-            setTimeout(() =>{
-                this.newAnswer(currentIndex)}, 1000)
         },
         newAnswer(currentIndex){
             let newMessageAnswer = {
@@ -200,7 +208,7 @@ createApp({
         },
         currentDate(){
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
-        }
+        },
     }
 
 }).mount('#app')
