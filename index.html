@@ -46,25 +46,27 @@
                         <form class="container-fluid">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                <input v-model="searchNameContact" type="text" class="form-control" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                         </form>
                     </div>
                 
                 <!-- CHATLIST  -->
-                <div class=" border border-secondary-subtle d-flex chatStyle p-2" v-for = "(element, index) in contacts" @click="changeChat(index)">
+                <div v-for = "(element, index) in contacts"  @click="changeChat(index)" >
+                <div class=" border border-secondary-subtle d-flex chatStyle p-2" v-if="element.name.toLowerCase().includes(searchNameContact)">
                     <img class="myProfile " :src="element.avatar" alt="">
-                    <div class="d-flex flex-column px-3 ">
-                        <div class="">
-                            {{element.name}}
+                        <div  class="d-flex flex-column px-3 " >
+                            <div class="">
+                                {{element.name}}
+                            </div>
+                            <small class=" text-secondary fontSizeLastMessages">
+                                {{element.messages[element.messages.length-1].message}}
+                            </small>
                         </div>
-                        <small class=" text-secondary fontSizeLastMessages">
-                            {{element.messages[element.messages.length-1].message}}
-                        </small>
-                    </div>
                         <small class="ms-auto text-secondary fontSizeLastMessages">
                             {{element.messages[element.messages.length-1].date.slice(10,16)}}
                         </small>
+                </div>
                 </div>
                 </aside>
                 <!-- SECTION MESSAGES -->
@@ -78,7 +80,7 @@
                                     {{contacts[currentIndex].name}}
                                 </div>
                                 <div class="text-secondary">
-                                    ultimo accesso 
+                                    ultimo accesso {{ contacts[currentIndex].messages[contacts[currentIndex].messages.length-1].date }}
                                 </div>
                             </div>
                         </div>

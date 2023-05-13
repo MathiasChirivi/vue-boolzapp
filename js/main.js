@@ -7,7 +7,7 @@ createApp({
             addMessageErrorClass:"",
             currentIndex:0,
             newMessage:"",
-            searchName:"",
+            searchNameContact: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -209,6 +209,16 @@ createApp({
         currentDate(){
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
-    }
+        searchContact(){
+            this.contacts.forEach(nameSearch => {
+                let searchName = nameSearch.name.toLoweCase();
+                if (searchName.includes(this.searchNameContact.toLowerCase())) {
+                    nameSearch.visible = true;
+                } else {
+                    nameSearch.visible = false;
+                }
+            });
+        }
+    },
 
 }).mount('#app')
