@@ -1,7 +1,16 @@
-#containerMessage {
-    background-image: linear-gradient(rgb(0 150 136) 10%, rgba(255, 255, 255, 0.767) 0%);
-    height: 100%;
+body{
+    height: 100vh;
     width: 100%;
+    background: linear-gradient(180deg, rgba(0,150,136,1) 12%, rgba(218,219,212,1) 12%);
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.containerApp{
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
 }
 
 .section {
@@ -22,7 +31,7 @@
 
 .aside {
     background-color: rgb(234 234 234);
-    width: 35vw;
+    width: 35%;
 }
 
 .iconColor {
@@ -32,6 +41,10 @@
 
 #notifications {
     background-color: #8edafc;
+    display: flex;
+    background-color: #8edafc;
+    align-items: center;
+    justify-content: center;
 }
 
 .iconNotifications {
@@ -53,9 +66,23 @@
     left: 65px;
 }
 
+.searchInput{
+    height: 50px;
+    background-color: #DDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactsLeft{
+    height: calc(100% - 70px - 70px - 50px);
+    overflow-y: auto;
+    background-color: rgb(224, 224, 224);
+}
+
 .chatStyle {
     cursor: pointer;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
 
 .chatStyle:hover {
@@ -64,16 +91,18 @@
 }
 
 main {
-    width: 60vw;
+    width: 65%;
 }
 
 .partMessages {
     border: 0.5px solid rgb(168, 168, 168);
+
 }
 
 .chatMessages {
     background-image: url(../img/mine.jpg);
-    max-height: calc((100vh - 70px - 70px));
+    height: calc(100% - 140px);
+    overflow: auto;
 }
 
 .receivedMessage {

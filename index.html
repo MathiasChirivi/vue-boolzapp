@@ -18,9 +18,7 @@
 
 <body>
 
-    <div id="app">
-        <div id="containerMessage">
-            <div class="container pt-5 d-flex">
+    <div id="app" class="containerApp">
                 <aside class="aside">
                     <div class="d-flex justify-content-between border section">
                         <div class="my-auto">
@@ -44,8 +42,7 @@
                         </div>
                     </div>
                     <!-- SEARCH CHAT -->
-                    <div class="navbar">
-                        <form class="container-fluid">
+                    <div class="navbar searchInput">
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="fa-solid fa-magnifying-glass"></i></span>
@@ -53,10 +50,10 @@
                                     placeholder="cerca o inizia una nuova chat" aria-label="Username"
                                     aria-describedby="basic-addon1">
                             </div>
-                        </form>
                     </div>
 
                     <!-- CHATLIST  -->
+                    <div class="contactsLeft">
                     <div v-for="(element, index) in contacts" @click="changeChat(index)">
                         <div class=" border border-secondary-subtle d-flex chatStyle p-2"
                             v-if="element.name.toLowerCase().includes(searchNameContact)">
@@ -65,7 +62,7 @@
                                 <div class="">
                                     {{element.name}}
                                 </div>
-                                <small class=" text-secondary fontSizeLastMessages">
+                                <small class=" fontSizeLastMessages">
                                     {{element.messages[element.messages.length-1].message}}
                                 </small>
                             </div>
@@ -74,6 +71,7 @@
                             </small>
                         </div>
                     </div>
+                </div>
                 </aside>
                 <!-- SECTION MESSAGES -->
                 <main>
@@ -98,8 +96,7 @@
                         </div>
                     </div>
                     <!-- SECTION MESSAGES WITH CHAT -->
-                    <div class="partMessages ">
-                        <div class="chatMessages d-flex flex-column overflow-auto">
+                        <div class="chatMessages">
                             <div v-for="(element, index) in contacts[currentIndex].messages" class="d-flex"
                                 :class="(element.status == 'received') ? 'justify-content-start' : 'justify-content-end'">
                                 <div
@@ -113,7 +110,7 @@
                         </div>
                         <!-- PART OF YOU WRITE MESSAGES WITH ICON MICROPHONE -->
                         <div class="section">
-                            <div class="input-group">
+                            <div class="input-group align-items-center ">
                                 <i class="fa-regular fa-face-smile iconColor p-4 px-3"></i>
                                 <input v-model="newMessage" @keyUp.enter="addMessage(currentIndex)" type="text"
                                     class="form-control" :class="addMessageErrorClass"
@@ -121,10 +118,7 @@
                                 <i class="fa-solid fa-microphone iconColor p-3 px-3"></i>
                             </div>
                         </div>
-                    </div>
                 </main>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
