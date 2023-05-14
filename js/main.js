@@ -1,4 +1,4 @@
-console.log("benvenuto");
+//console.log("benvenuto");
 
 const { createApp } = Vue
 createApp({
@@ -8,6 +8,7 @@ createApp({
             currentIndex: 0,
             newMessage: "",
             searchNameContact: "",
+            //CREATE A OBJECT OF ARRAY
             contacts: [
                 {
                     name: 'Michele',
@@ -174,10 +175,13 @@ createApp({
 
         }
     },
+    //METHODS
     methods: {
+        //CHANGE CHAT
         changeChat(index) {
             this.currentIndex = index
         },
+        //ADD MESSAGES
         addMessage(currentIndex) {
             if (this.newMessage.length > 0) {
                 let newMessage = {
@@ -199,6 +203,7 @@ createApp({
                 }, 400);
             }
         },
+        //automatically ANSWER
         newAnswer(currentIndex) {
             let newMessageAnswer = {
                 message: "ok",
@@ -208,9 +213,11 @@ createApp({
             this.contacts[currentIndex].messages.push(newMessageAnswer);
             this.newMessageAnswer = "";
         },
+        // CURRENT DATE WITH LIBRARY
         currentDate() {
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
+        // SEARCH CONTACT
         searchContact() {
             this.contacts.forEach(nameSearch => {
                 let searchName = nameSearch.name.toLoweCase();
@@ -220,6 +227,10 @@ createApp({
                     nameSearch.visible = false;
                 }
             });
+        },
+        // REMOVE MESSAGE
+        removeMessage(index){
+            this.contacts[this.currentIndex].messages.splice(index,1);
         }
     },
 

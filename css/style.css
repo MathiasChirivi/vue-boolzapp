@@ -1,3 +1,4 @@
+/* BODY */
 body{
     height: 100vh;
     width: 100%;
@@ -6,8 +7,9 @@ body{
     padding-bottom: 3rem;
 }
 
+/* LEFT */
 .containerApp{
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -37,6 +39,11 @@ body{
 .iconColor {
     color: rgb(147, 147, 147);
     margin-right: 1rem;
+    cursor: pointer;
+}
+
+.iconColor:hover{
+    color: rgba(0,150,136,1);
 }
 
 #notifications {
@@ -90,6 +97,7 @@ body{
     color: white;
 }
 
+/* RIGHT */
 main {
     width: 65%;
 }
@@ -115,7 +123,7 @@ main {
 }
 
 .sentMessage {
-    background-color: #D5F9BA;
+    background-color: #D1F4CC;
     justify-content: flex-start;
     max-width: 380px;
     padding: 10px;
@@ -123,6 +131,7 @@ main {
     word-break: break-all;
 }
 
+/* ERROR MESSAGE FOR INPUT */
 .errorMessage {
     animation: bounce .3s
 }
