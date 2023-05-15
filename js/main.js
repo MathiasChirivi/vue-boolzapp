@@ -5,6 +5,7 @@ createApp({
     data() {
         return {
             addMessageErrorClass: "",
+            messageDeleteVisi: null,
             currentIndex: 0,
             newMessage: "",
             searchNameContact: "",
@@ -240,8 +241,9 @@ createApp({
             return (this.currentIndex == index) ? "activeContact" : "";
         },
         // REMOVE MESSAGE
-        removeMessage(index, currentIndex){
-            this.contacts[currentIndex].messages.splice(index,1);
+        removeMessage(index){
+            this.contacts[this.currentIndex].messages.splice(index, 1);        
+            this.messageDeleteVisi = null;
         }
     },
 
