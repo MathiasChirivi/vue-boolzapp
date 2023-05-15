@@ -228,6 +228,9 @@ createApp({
                 }
             });
         },
+        getContactClass(index){
+            return (this.currentIndex == index) ? "activeContact" : "";
+        },
         // REMOVE MESSAGE
         removeMessage(index){
             this.contacts[this.currentIndex].messages.splice(index,1);

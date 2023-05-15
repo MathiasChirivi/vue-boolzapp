@@ -58,7 +58,7 @@
             <!-- CHATLIST  -->
             <div class="contactsLeft">
                 <div v-for="(element, index) in contacts" @click="changeChat(index)">
-                    <div class=" border border-secondary-subtle d-flex chatStyle p-2"
+                    <div class=" border border-secondary-subtle d-flex chatStyle p-2" :class="getContactClass(index)"
                         v-if="element.name.toLowerCase().includes(searchNameContact)">
                         <img class="myProfile " :src="element.avatar" alt="">
                         <div class="d-flex flex-column px-3 ">
@@ -105,7 +105,7 @@
                     <div
                         :class="(element.status == 'received') ? 'receivedMessage d-flex flex-column rounded-3' : 'sentMessage borderLikeWhtssentMessage d-flex flex-column rounded-3'">
                         {{element.message}}
-                        <div class="text-secondary">
+                        <div class="textDate">
                             {{element.date}}
                         </div>
                         <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
