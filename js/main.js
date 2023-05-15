@@ -220,11 +220,8 @@ createApp({
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
         lastMessage(){
-            const messagesContact = this.contacts[this.currentIndex].messages;
-            const messageReceveid = messagesContact.filter((message) => message.status == "received");
-
-            const MessgaeLast = messageReceveid[messageReceveid.length - 1];
-            return MessgaeLast.date;
+            let lastMessage = this.contacts[this.currentIndex].messages[this.contacts[this.currentIndex].messages.length - 1].date.slice(1);
+            return lastMessage
         },
         // SEARCH CONTACT
         searchContact() {
