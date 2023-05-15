@@ -9,6 +9,7 @@ createApp({
             currentIndex: 0,
             newMessage: "",
             searchNameContact: "",
+            messageRandom:['Ciao Sofia', 'che piacere sentirti di nuovo', 'ti va di uscire stasera?', 'fatti sentire spesso'],
             //CREATE A OBJECT OF ARRAY
             contacts: [
                 {
@@ -207,7 +208,7 @@ createApp({
         //automatically ANSWER
         newAnswer(currentIndex) {
             let newMessageAnswer = {
-                message: "ok",
+                message: this.messageRandom[Math.floor(Math.random() * this.messageRandom.length)],
                 date: this.currentDate(),
                 status: 'received',
             }
