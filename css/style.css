@@ -1,14 +1,30 @@
 /* BODY */
-body{
+body {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(180deg, rgba(0,150,136,1) 12%, rgba(218,219,212,1) 12%);
+    background: linear-gradient(180deg, rgba(0, 150, 136, 1) 12%, rgba(218, 219, 212, 1) 12%);
     padding-top: 1rem;
     padding-bottom: 3rem;
 }
 
+/* STYLE FOR splash page */
+.splash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 9999;
+}
+
+.splash img {
+    width: 100vh;
+}
+
 /* LEFT */
-.containerApp{
+.containerApp {
     max-width: 1300px;
     margin: 0 auto;
     height: 100%;
@@ -42,8 +58,8 @@ body{
     cursor: pointer;
 }
 
-.iconColor:hover{
-    color: rgba(0,150,136,1);
+.iconColor:hover {
+    color: rgba(0, 150, 136, 1);
 }
 
 #notifications {
@@ -73,7 +89,7 @@ body{
     left: 65px;
 }
 
-.searchInput{
+.searchInput {
     height: 50px;
     background-color: #DDD;
     display: flex;
@@ -81,7 +97,7 @@ body{
     justify-content: center;
 }
 
-.contactsLeft{
+.contactsLeft {
     height: calc(100% - 70px - 70px - 50px);
     overflow-y: auto;
     background-color: rgb(224, 224, 224);
@@ -96,7 +112,7 @@ body{
     background-color: #EEEEEE;
 }
 
-.chatStyle.activeContact{
+.chatStyle.activeContact {
     background-color: #E0E0E0;
 }
 
@@ -109,7 +125,7 @@ main {
     border: 0.5px solid rgb(168, 168, 168);
 }
 
-.textDate{
+.textDate {
     font-size: 0.7rem;
 }
 

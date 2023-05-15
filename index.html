@@ -23,6 +23,11 @@
 <body>
     <!-- CREATE LEFT PART OF STAY CONTACTS -->
     <div id="app" class="containerApp">
+        <!--SPLASH PAGE-->
+        <div v-if="showSplash" class="splash">
+            <img src="./img/splashPage.webp" alt="Splash Image">
+        </div>
+        <!-- ASIDE LEFT -->
         <aside class="aside">
             <div class="d-flex justify-content-between border section">
                 <div class="my-auto">
@@ -110,7 +115,8 @@
                         <div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="#">Info</a></li>
-                                <li><a @click="removeMessage(index)" class="dropdown-item" href="#">Elimina Messagio</a></li>
+                                <li><a @click="removeMessage(index)" class="dropdown-item" href="#">Elimina Messagio</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

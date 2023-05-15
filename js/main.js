@@ -4,8 +4,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            showSplash: true,
             addMessageErrorClass: "",
-            messageDeleteVisi: null,
             currentIndex: 0,
             newMessage: "",
             searchNameContact: "",
@@ -241,8 +241,12 @@ createApp({
         // REMOVE MESSAGE
         removeMessage(index){
             this.contacts[this.currentIndex].messages.splice(index, 1);        
-            this.messageDeleteVisi = null;
         }
     },
+    mounted() {
+        setTimeout(() => {
+          this.showSplash = false;
+        }, 2000);
+      }
 
 }).mount('#app')
