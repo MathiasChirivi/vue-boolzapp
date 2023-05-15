@@ -181,9 +181,9 @@ createApp({
         changeChat(index) {
             this.currentIndex = index
         },
-        //ADD MESSAGES
+        //ADD MESSAGES and CONTROL WITH TRIM(ERROR)
         addMessage(currentIndex) {
-            if (this.newMessage.length > 0) {
+            if ((this.newMessage.length > 0) && this.newMessage.trim()) {
                 let newMessage = {
                     message: this.newMessage,
                     date: this.currentDate(),
@@ -217,6 +217,13 @@ createApp({
         currentDate() {
             return dayjs().format('DD/MM/YYYY HH:mm:ss');
         },
+        lastMessage(){
+            const messagesContact = this.contacts[this.currentIndex].messages;
+            const messageReceveid = messagesContact.filter((message) => message.status == "received");
+
+            const MessgaeLast = messageReceveid[messageReceveid.length - 1];
+            return MessgaeLast.date;
+        },
         // SEARCH CONTACT
         searchContact() {
             this.contacts.forEach(nameSearch => {
@@ -228,12 +235,13 @@ createApp({
                 }
             });
         },
+        //GET CLASS CONTACT WITH HOVER ADD IN STYLE.CSS
         getContactClass(index){
             return (this.currentIndex == index) ? "activeContact" : "";
         },
         // REMOVE MESSAGE
-        removeMessage(index){
-            this.contacts[this.currentIndex].messages.splice(index,1);
+        removeMessage(index, currentIndex){
+            this.contacts[currentIndex].messages.splice(index,1);
         }
     },
 
