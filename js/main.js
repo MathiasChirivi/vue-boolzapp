@@ -8,6 +8,7 @@ createApp({
             addMessageErrorClass: "",
             currentIndex: 0,
             newMessage: "",
+            messageIcon: 'fa-microphone',
             searchNameContact: "",
             messageRandom:['Ciao Sofia', 'che piacere sentirti di nuovo', 'ti va di uscire stasera?', 'fatti sentire spesso'],
             //CREATE A OBJECT OF ARRAY
@@ -241,7 +242,7 @@ createApp({
         // REMOVE MESSAGE
         removeMessage(index){
             this.contacts[this.currentIndex].messages.splice(index, 1);        
-        }
+        },
     },
     mounted() {
         setTimeout(() => {
